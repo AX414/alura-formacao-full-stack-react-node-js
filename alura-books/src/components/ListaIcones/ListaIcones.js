@@ -1,18 +1,25 @@
-import './ListaIcones.css';
 import perfil from '../../assets/imgs/perfil.svg';
 import sacola from '../../assets/imgs/sacola.svg';
+import styled from 'styled-components';
 
 const icones = [perfil, sacola];
-
+const Itens = styled.ul`
+    display: flex;
+    align-items: center;
+`
+const Item = styled.li`
+    margin-right: 40px;
+    width: 25px;
+`
 function ListaIcones(){
     return(
-        <ul className='App-list-icons'>
+        <Itens>
           {icones.map((icone)=>(
-            <li className='App-list-icon'>
-            <img src={icone}></img>
-          </li>
+          <Item>
+            <img src={icone} alt="icone"/>
+          </Item>
           ))}
-        </ul>
+        </Itens>
     )
 }
 

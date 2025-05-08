@@ -1,14 +1,20 @@
-import './App.css';
 import React from 'react';
 import Header from '../Header/Header';
+import Pesquisa from '../Pesquisa/Pesquisa';
+import styled from 'styled-components';
+
+const AppContainer = styled.div`
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(90deg, #002F52 35%, #326589);
+`
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
+    <AppContainer>
         <Header/>
-      </header>
-    </div>
+        <Pesquisa/> 
+    </AppContainer>
   );
 }
 
