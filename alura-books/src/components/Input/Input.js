@@ -16,9 +16,8 @@ const InputContainer = styled.input`
                 font-size: 16px;
         }
 `
-function Input() {
-        return (
-                <InputContainer/>
-        )
+function Input({ placeholder, onChange }) {
+        return <InputContainer placeholder={placeholder} onChange={onChange} />;
 }
+
 export default Input;

@@ -4,9 +4,9 @@ import Pesquisa from '../Pesquisa/Pesquisa';
 import styled from 'styled-components';
 
 const AppContainer = styled.div`
+    min-height: 100vh;
     width: 100vw;
-    height: 100vh;
-    background-image: linear-gradient(90deg, #002F52 35%, #326589);
+    background: transparent;
 `
 
 function App() {

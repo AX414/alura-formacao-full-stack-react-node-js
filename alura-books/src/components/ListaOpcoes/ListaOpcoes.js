@@ -20,7 +20,7 @@ function ListaOpcoes(){
     return(
         <Opcoes>
           {items.map((opcao) => (
-            <Opcao>
+            <Opcao key={opcao}>
               <p>{opcao}</p>
             </Opcao>
           ))}

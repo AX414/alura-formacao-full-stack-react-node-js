@@ -15,7 +15,7 @@ function ListaIcones(){
     return(
         <Itens>
           {icones.map((icone)=>(
-          <Item>
+          <Item key={icone}>
             <img src={icone} alt="icone"/>
           </Item>
           ))}

@@ -4,11 +4,10 @@ import { useState } from "react";
 import { livros } from './dadosPesquisa';
 
 const PesquisaContainer = styled.section`
-        background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
+        background: transparent;
         color: #FFF;
         text-align: center;
         padding: 85px 0;
-        height: 270px;
         width: 100%;
 `
 
@@ -25,29 +24,73 @@ const Subtitulo = styled.h3`
         margin-bottom: 40px;
 `
 
-function Pesquisa(){
+const InputContainer = styled.div`
+        margin-bottom: 40px;
+`
 
-    //Valor inicial do estado é nada
+const LivroGrid = styled.div`
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Grid responsivo */
+        gap: 20px; /* Espaço entre os itens */
+        padding: 0 20px; /* Padding para garantir que o conteúdo não encoste nas bordas */
+`
+
+const Livro = styled.div`
+        background: transparent; /* garante que não vai ficar branco */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        p {
+            color: black;
+            width: 70%;
+            background-color: #FFF;
+            border-radius: 25px;
+            text-align: center;
+            justify-content: center;
+            justify-items: center;
+            padding: 10px;
+        }
+        p:hover {
+            color: white;
+            background-color: grey;
+        }
+
+        img {
+            width: 100%; /* Ajusta a largura da imagem de acordo com o espaço */
+            max-width: 75%; /* Limita a largura máxima da imagem */
+        }
+`
+
+function Pesquisa() {
+    // Valor inicial do estado é nada
     const [livrosPesquisados, setLivrosPesquisados] = useState([]);
-    console.log(livrosPesquisados);  
-    /*
-       o evento do input vai ser 
-       justamente o que a pessoa 
-       escreve no input.
-    */
 
-    return(
+    return (
         <PesquisaContainer>
             <Titulo>Já sabe por onde começar?</Titulo>
             <Subtitulo>Encontre seu livro em nossa estante!</Subtitulo>
-            <Input  placeholder="Escreva o nome de um livro"
-                    onBlur={evento => {
+            <InputContainer>
+                <Input
+                    placeholder="Escreva o nome de um livro"
+                    onChange={evento => {
                         const textoDigitado = evento.target.value;
-                        const resultadoPesquisa = livros.filter(livro => livro.titulo.includes(textoDigitado))
+                        const resultadoPesquisa = livros.filter(livro =>
+                            livro.titulo.toLowerCase().includes(textoDigitado.toLowerCase())
+                        );
                         setLivrosPesquisados(resultadoPesquisa);
-                    }
-                }
-            />
+                    }}
+                />
+            </InputContainer>
+            <LivroGrid>
+                {livrosPesquisados.map(livro => (
+                    <Livro key={livro.id}>
+                        <img src={livro.src} alt="Capa do livro" />
+                        <p>{livro.titulo}</p>
+                    </Livro>
+                ))}
+            </LivroGrid>
         </PesquisaContainer>
     )
 }
