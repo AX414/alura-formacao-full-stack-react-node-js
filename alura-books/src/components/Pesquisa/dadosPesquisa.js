@@ -14,5 +14,4 @@ export const livros = [
     {titulo: 'Javascript Assertivo', id: 2, src: livro},
     {titulo: 'Cangaceiro em Javascript', id: 3, src: livro},
     {titulo: 'Aventureiros em Java', id: 4, src: livro},
-    
 ]

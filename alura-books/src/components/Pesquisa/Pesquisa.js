@@ -2,19 +2,13 @@ import styled from 'styled-components';
 import Input from '../Input/Input';
 import { useState } from "react";
 import { livros } from './dadosPesquisa';
+import { Titulo } from '../Titulo/Titulo';
 
 const PesquisaContainer = styled.section`
         background: transparent;
         color: #FFF;
         text-align: center;
         padding: 85px 0;
-        width: 100%;
-`
-
-const Titulo = styled.h2`
-        color: #FFF;
-        font-size: 36px;
-        text-align: center;
         width: 100%;
 `
 
@@ -69,7 +63,7 @@ function Pesquisa() {
 
     return (
         <PesquisaContainer>
-            <Titulo>Já sabe por onde começar?</Titulo>
+            <Titulo color="#FFF">Já sabe por onde começar?</Titulo>
             <Subtitulo>Encontre seu livro em nossa estante!</Subtitulo>
             <InputContainer>
                 <Input
