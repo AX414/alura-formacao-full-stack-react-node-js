@@ -18,9 +18,18 @@ function getTodos(req, res) {
 
 function getLivro(req, res) {
     try {
-        const livro = getLivroPorID(req.params.id)
-        req.status(200);
-        res.send(livro)
+
+        const id = req.params.id
+
+        if (id && Number(id)) {
+            const livro = getLivroPorID(req.params.id)
+            req.status(200)
+            res.send(livro)
+        } else {
+            res.status(422)
+            res.send("ID inválido.")
+        }
+
     } catch (err) {
         res.status(500)
         res.send(err.message)
@@ -29,13 +38,20 @@ function getLivro(req, res) {
 
 function addLivro(req, res) {
     try {
-        const resposta = adicionarLivro(req.body);
-        if(resposta == 1){
-            res.status(201);
-            res.send("Livro inserido com sucesso.");
-        }else{
-            res.status(409)
-            res.send("Identificador duplicado.");
+        const nome = req.body.nome
+
+        if (nome) {
+            const resposta = adicionarLivro(req.body)
+            if (resposta == 1) {
+                res.status(201)
+                res.send("Livro inserido com sucesso.")
+            } else {
+                res.status(409)
+                res.send("Identificador duplicado.")
+            }
+        } else {
+            res.status(422)
+            res.send("O campo nome é obrigatório.")
         }
     } catch (err) {
         res.status(500)
@@ -45,13 +61,20 @@ function addLivro(req, res) {
 
 function deleteLivro(req, res) {
     try {
-        const resposta = deletarLivro(req.params.id);
-            if(resposta == 1){
-            res.status(200);
-            res.send("Livro deletado com sucesso.");
-        }else{
-            res.status(404)
-            res.send("O identificador informado não existe.");
+        const id = req.params.id
+
+        if (id && Number(id)) {
+            const resposta = deletarLivro(id)
+            if (resposta == 1) {
+                res.status(200)
+                res.send("Livro deletado com sucesso.")
+            } else {
+                res.status(404)
+                res.send("O identificador informado não existe.")
+            }
+        } else {
+            res.status(422)
+            res.send("ID inválido.")
         }
     } catch (err) {
         res.status(500)
@@ -61,13 +84,20 @@ function deleteLivro(req, res) {
 
 function patchLivro(req, res) {
     try {
-        const resposta = alterarLivro(req.body, req.params.id);
-        if(resposta == 1){
-            res.status(200);
-            res.send("Livro alterado com sucesso.");
-        }else{
-            res.status(404)
-            res.send("O identificador informado não existe.");
+        const id = req.params.id
+
+        if (id && Number(id)) {
+            const resposta = alterarLivro(req.body, id)
+            if (resposta == 1) {
+                res.status(200)
+                res.send("Livro alterado com sucesso.")
+            } else {
+                res.status(404)
+                res.send("O identificador informado não existe.")
+            }
+        } else {
+            res.status(422)
+            res.send("ID inválido.")
         }
     } catch (err) {
         res.status(500)

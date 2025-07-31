@@ -7,7 +7,7 @@
 | Curso                                                                      | Certificado                                                                                                                                               |
 | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |<b>React: comece seu projeto fullStack </b>| <center><a href="https://cursos.alura.com.br/certificate/2275f004-f602-4611-886e-4feff8ed7a4e?lang=pt_BR">link</a><center>|
-|<b>NodeJS: continue seu projeto fullStack criando uma API com Express</b>| <center><a href="">ainda estudando</a><center>|
+|<b>NodeJS: continue seu projeto fullStack criando uma API com Express</b>| <center><a href="https://cursos.alura.com.br/certificate/9dc275e7-2b51-4fb1-8021-537ee919b6e3?lang=pt_BR">link</a><center>|
 |<b>React e NojeJS: consumindo APIs no React no projeto fullStack</b>| <center><a href="">ainda estudando</a><center>|
 
 | Formação                                                                    | Certificado                                                                                                                                             |
