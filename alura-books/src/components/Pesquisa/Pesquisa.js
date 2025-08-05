@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import Input from '../Input/Input';
-import { useState } from "react";
-import { livros } from './dadosPesquisa';
+import { useState, useEffect } from "react";
+import { getLivros } from '../../servicos/livros'
 import { Titulo } from '../Titulo/Titulo';
+
 
 const PesquisaContainer = styled.section`
         background: transparent;
@@ -58,8 +59,14 @@ const Livro = styled.div`
 `
 
 function Pesquisa() {
-    // Valor inicial do estado é nada
-    const [livrosPesquisados, setLivrosPesquisados] = useState([]);
+    const [livrosPesquisados, setLivrosPesquisados] = useState([])
+    const [livros, setLivros] = useState([])
+
+
+    useEffect(() => {
+        const livrosDaAPI = getLivros()
+        setLivros(livrosdaAPI)
+    }, [])
 
     return (
         <PesquisaContainer>
@@ -67,23 +74,21 @@ function Pesquisa() {
             <Subtitulo>Encontre seu livro em nossa estante!</Subtitulo>
             <InputContainer>
                 <Input
-                    placeholder="Escreva o nome de um livro"
-                    onChange={evento => {
-                        const textoDigitado = evento.target.value;
-                        const resultadoPesquisa = livros.filter(livro =>
-                            livro.titulo.toLowerCase().includes(textoDigitado.toLowerCase())
-                        );
-                        setLivrosPesquisados(resultadoPesquisa);
-                    }}
+                    placeholder="Escreva sua próxima leitura"
+                    onBlur={evento => {
+                    const textoDigitado = evento.target.value
+                    const resultadoPesquisa = livros.filter( livro => livro.nome.includes(textoDigitado))
+                    setLivrosPesquisados(resultadoPesquisa)
+                }}
                 />
             </InputContainer>
             <LivroGrid>
-                {livrosPesquisados.map(livro => (
-                    <Livro key={livro.id}>
-                        <img src={livro.src} alt="Capa do livro" />
-                        <p>{livro.titulo}</p>
-                    </Livro>
-                ))}
+                { livrosPesquisados.map( livro => (
+                <Livro>
+                    <img src={livro.src}/>
+                    <p>{livro.nome}</p>
+                </Livro>
+            ) ) }
             </LivroGrid>
         </PesquisaContainer>
     )

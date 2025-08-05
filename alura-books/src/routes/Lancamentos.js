@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import iconeLivro from '../../assets/imgs/livro.png'
-import { Titulo } from "../Titulo/Titulo";
-import CardRecomendacao from "../CardRecomendacao/CardRecomendacao";
+import iconeLivro from '../assets/imgs/livro.png'
+import { Titulo } from "../components/Titulo/Titulo";
+import CardRecomendacao from "../components/CardRecomendacao/CardRecomendacao";
 
 const LancamentosContainer = styled.section`
     background-color: #EBECEE;
