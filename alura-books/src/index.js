@@ -10,9 +10,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 const GlobalStyle = createGlobalStyle`
     body {
-    margin: 0;
+    margin: -1%;
     min-height: 100vh;
-    background: linear-gradient(180deg, #002F52 0%, #003a60 30%, #274e70 70%, #326589 100%);
+    min-width: 100vw;
+    background: linear-gradient(90deg, #002F52 0%, #003a60 30%, #274e70 70%, #326589 100%);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;

@@ -3,6 +3,7 @@ import Input from '../Input/Input';
 import { useState, useEffect } from "react";
 import { getLivros } from '../../services/livros'
 import { Titulo } from '../Titulo/Titulo';
+import { postFavorito } from '../../services/favoritos';
 
 
 const PesquisaContainer = styled.section`
@@ -77,7 +78,16 @@ function Pesquisa() {
         }
     }
 
-    return (
+    async function insertFavorito(id) {
+        try {
+            await postFavorito(id)
+            alert(`Livro de id:${id} inserido!`)
+        } catch (error) {
+            console.error('Erro inserir livro na lista de favoritos:', error.response?.data || error.message);
+        }
+    }
+
+    return(
         <PesquisaContainer>
             <Titulo color="#FFF">Já sabe por onde começar?</Titulo>
             <Subtitulo>Encontre seu livro em nossa estante!</Subtitulo>
@@ -102,7 +112,7 @@ function Pesquisa() {
             {livrosPesquisados.length > 0 && (
                 <LivroGrid>
                     {livrosPesquisados.map(livro => (
-                        <Livro key={livro.id}>
+                        <Livro key={livro.id} onClick={() => insertFavorito(livro.id)}>
                             <p>{livro.nome}</p>
                         </Livro>
                     ))}

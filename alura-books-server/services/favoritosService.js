@@ -36,17 +36,16 @@ function adicionarLivroFavorito(id) {
     return 1;
 }
 
-function deletarLivroFavorito(id){
-    const livrosAtuais = JSON.parse(fs.readFileSync(json))
-    const livrosFiltrados = livros.filter(livro=>{livro.id!==id})
-    
-     // Se o número de livros filtrados for igual ao total de livros, não houve remoção
+function deletarLivroFavorito(id) {
+    const livrosAtuais = JSON.parse(fs.readFileSync(json));
+
+    const livrosFiltrados = livrosAtuais.filter(livro => String(livro.id) !== String(id));
+
     if (livrosAtuais.length === livrosFiltrados.length) {
         return 0;
     }
-    
-    fs.writeFileSync("favoritos.json", JSON.stringify(livrosFiltrados))
 
+    fs.writeFileSync(json, JSON.stringify(livrosFiltrados, null, 2));
     return 1;
 }
 

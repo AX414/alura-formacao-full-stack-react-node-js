@@ -9,7 +9,7 @@ const router = Router()
 
 router.get('/', getTodosFavoritos)
 
-router.post('/', addLivroFavorito)
+router.post('/:id', addLivroFavorito)
 
 router.delete('/:id', deleteLivroFavorito)
 
