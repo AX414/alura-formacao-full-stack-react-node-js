@@ -12,6 +12,6 @@
 
 | Formação                                                                    | Certificado                                                                                                                                             |
 | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <b>Full stack JavaScript: crie um projeto com React e Node.js</b> | <a href="https://cursos.alura.com.br/degree/certificate/4b40420b-9f32-4aae-8007-05d458c985d8?lang=pt_BR">ainda estudando</a>                                                  |
+| <b>Full stack JavaScript: crie um projeto com React e Node.js</b> | <a href="https://cursos.alura.com.br/degree/certificate/4b40420b-9f32-4aae-8007-05d458c985d8?lang=pt_BR">link</a>                                                  |
 
 </html>
